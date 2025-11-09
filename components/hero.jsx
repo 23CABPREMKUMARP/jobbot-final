@@ -51,6 +51,7 @@ const HeroSection = () => {
 <div className="hero-image-wrapper mt-5 md:mt-0">
 <div ref={imageRef} className="hero-video">
   <video
+    id="heroVideo"
     src="/banner.mp4"
     width="1280"
     height="720"
@@ -60,10 +61,12 @@ const HeroSection = () => {
     playsInline
     preload="auto"
     className="rounded-lg shadow-2xl border mx-auto"
+    onLoadedData={(e) => e.target.play().catch(() => {})}
   >
     Your browser does not support the video tag.
   </video>
 </div>
+
 
 </div>
 
