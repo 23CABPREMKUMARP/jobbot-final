@@ -49,18 +49,22 @@ const HeroSection = () => {
          
        </div>
 <div className="hero-image-wrapper mt-5 md:mt-0">
-  <div ref={imageRef} className="hero-video">
-    <video
-      src="/banner.mp4" // replace with your actual video file name
-      width="1280"
-      height="720"
-      autoPlay
-      muted
-      loop
-      playsInline
-      className="rounded-lg shadow-2xl border mx-auto"
-    />
-  </div>
+<div ref={imageRef} className="hero-video">
+  <video
+    src="/banner.mp4"
+    width="1280"
+    height="720"
+    autoPlay
+    muted
+    loop
+    playsInline
+    preload="auto"
+    className="rounded-lg shadow-2xl border mx-auto"
+  >
+    Your browser does not support the video tag.
+  </video>
+</div>
+
 </div>
 
       </div>
