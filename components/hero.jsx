@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import StarfieldWarp from "./StarfieldWarp"; // make sure path is correct
 
 const HeroSection = () => {
   const imageRef = useRef(null);
@@ -27,48 +28,49 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="w-full pt-36 md:pt-48 pb-10">
-      <div className="space-y-6 text-center">
-        <div className="space-y-6 mx-auto">
+    <StarfieldWarp>
+      <section className="relative w-full pt-36 md:pt-48 pb-10 text-center text-white z-10">
+        <div className="space-y-6 mx-auto max-w-5xl">
           <h1 className="text-5xl font-bold md:text-6xl lg:text-7xl xl:text-8xl gradient-title animate-gradient">
             Your AI Career Coach for
             <br />
             Professional Success
           </h1>
-          <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl">
+
+          <p className="mx-auto max-w-[600px] text-gray-300 md:text-xl">
             Advance your career with personalized guidance, interview prep, and
             AI-powered tools for job success.
           </p>
+
+          <div className="flex justify-center space-x-4 mt-6">
+            <Link href="/dashboard">
+              <Button size="lg" className="px-8 bg-[#0FABCA] hover:bg-[#0da1b8] text-white">
+                Get Started
+              </Button>
+            </Link>
+          </div>
         </div>
-        <div className="flex justify-center space-x-4">
-          <Link href="/dashboard">
-            <Button size="lg" className="px-8">
-              Get Started
-            </Button>
-          </Link>
-         
-       </div>
-<div className="hero-image-wrapper mt-5 md:mt-0">
-<div ref={imageRef} className="hero-video">
-  <video
-    src="/banner.mp4"
-    width="1280"
-    height="720"
-    autoPlay
-    muted
-    loop
-    playsInline
-    preload="auto"
-    className="rounded-lg shadow-2xl border mx-auto"
-  >
-    Your browser does not support the video tag.
-  </video>
-</div>
 
-</div>
-
-      </div>
-    </section>
+        {/* Video Banner */}
+        <div className="hero-image-wrapper mt-10">
+          <div ref={imageRef} className="hero-video">
+            <video
+              src="/banner.mp4"
+              width="1280"
+              height="720"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              className="rounded-2xl shadow-2xl border border-gray-700 mx-auto"
+            >
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </section>
+    </StarfieldWarp>
   );
 };
 
